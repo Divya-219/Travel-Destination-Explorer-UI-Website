@@ -43,6 +43,7 @@ WanderScope is a dynamic web application that allows users to:
 ## Live Data (API)
 
 Weather data is fetched using:
+https://open-meteo.com/
 
 ##  Form Validation
 
@@ -50,4 +51,5 @@ Contact form includes:
 
 - Custom error messages form
 
-
+## Author
+Divya Patel
