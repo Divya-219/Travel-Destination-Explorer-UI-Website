@@ -67,11 +67,14 @@ searchInput.addEventListener("input", () => {
 
 
 function getWeather(lat, lon, name) {
+  const weatherMini = document.getElementById("weatherMini");
+
   if (!weatherMini) return;
 
   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
     .then(res => res.json())
     .then(data => {
+      if (!data.current_weather) return;
       const temp = data.current_weather.temperature;
       weatherMini.innerText = `${name} 🌤 ${temp}°C`;
     })
@@ -81,11 +84,64 @@ function getWeather(lat, lon, name) {
 }
 
 
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navLinks = document.querySelector(".nav-links");
 
-window.onload = () => {
+if (hamburgerBtn && navLinks) {
+  hamburgerBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
   getWeather(43.65, -79.38, "Toronto");
 
   if (searchInput) {
     searchInput.value = "";
   }
-};
+});
+
+
+const form = document.getElementById("contactForm");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const messageError = document.getElementById("messageError");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // clear old errors
+  nameError.innerText = "";
+  emailError.innerText = "";
+  messageError.innerText = "";
+
+  let isValid = true;
+
+  // NAME
+  if (nameInput.value.trim() === "") {
+    nameError.innerText = "Name is required";
+    isValid = false;
+  }
+
+  // EMAIL
+  if (emailInput.value.trim() === "") {
+    emailError.innerText = "Email is required";
+    isValid = false;
+  }
+
+  // MESSAGE
+  if (messageInput.value.trim() === "") {
+    messageError.innerText = "Message is required";
+    isValid = false;
+  }
+
+  if (isValid) {
+    alert("Form submitted successfully!");
+    form.reset();
+  }
+});

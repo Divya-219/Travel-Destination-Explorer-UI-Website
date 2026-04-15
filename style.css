@@ -1,44 +1,55 @@
+:root {
+  --primary: #2C6EED;
+  --bg: #F5F7FA;
+  --text: #222;
+  --white: #ffffff;
+  --radius: 12px;
+  --spacing: 16px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #F5F7FA;
+  background: var(--bg);
+  color: var(--text);
 }
+
 
 
 .top-bar {
   background: #000;
-  color: #fff;
+  color: var(--white);
   display: flex;
   justify-content: space-between;
-   align-items: center;
   align-items: center;
   padding: 8px 16px;
   font-size: 14px;
-}
-
-.top-bar a {
-  color: orange;
-  text-decoration: none;
+  flex-wrap: wrap; 
+  gap: 10px;
 }
 
 
 .header {
-  background: #fff;
+  background: var(--white);
 }
-
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  position: relative;
 }
-
 
 .logo {
   margin: 0;
 }
-
 
 .nav-links {
   list-style: none;
@@ -48,13 +59,12 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #000;
+  color: var(--text);
 }
 
 .nav-links a:hover {
-  color: #2C6EED;
+  color: var(--primary);
 }
-
 
 .nav-actions a {
   margin-left: 10px;
@@ -62,11 +72,21 @@ body {
 }
 
 .signup {
-  background: #2C6EED;
-  color: #fff;
+  background: var(--primary);
+  color: var(--white);
   padding: 6px 12px;
   border-radius: 5px;
 }
+
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 
 .hero {
   height: 300px;
@@ -74,10 +94,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: var(--white);
   text-align: center;
-  position: relative;
-   padding-bottom: 20px;
+  padding: 20px;
 }
 
 .hero-content h1 {
@@ -92,8 +111,8 @@ body {
 .btn {
   display: inline-block;
   padding: 8px 16px;
-  background: #2C6EED;
-  color: #fff;
+  background: var(--primary);
+  color: var(--white);
   text-decoration: none;
   border-radius: 5px;
 }
@@ -102,7 +121,7 @@ body {
 .search {
   display: flex;
   justify-content: center;
-   margin: 30px 0;
+  margin: 30px 0;
 }
 
 .search-box {
@@ -110,15 +129,10 @@ body {
   align-items: center;
   width: 100%;
   max-width: 500px;
-  background: #fff;
+  background: var(--white);
   border-radius: 50px;
   padding: 10px 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.search-box .icon {
-  margin-right: 10px;
-  font-size: 16px;
 }
 
 .search-box input {
@@ -127,6 +141,8 @@ body {
   flex: 1;
   font-size: 16px;
 }
+
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -135,26 +151,23 @@ body {
 }
 
 .card {
-  background: #fff;
-  border-radius: 12px;
+  background: var(--white);
+  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
-
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-/* ✅ FIX IMAGE */
 .card img {
   width: 100%;
-  height: 300px;       /* fixed height */
-  object-fit: cover;   /* keeps image proper */
+  height: 300px;
+  object-fit: cover;
 }
 
-/* ✅ FIX HEIGHT */
 .card-content {
   padding: 12px;
 }
@@ -167,26 +180,25 @@ body {
 .card p {
   font-size: 13px;
   color: #666;
-  margin: 5px 0;
 }
 
-/* ✅ BUTTON SMALL */
 .card button {
   margin-top: 8px;
   padding: 10px 20px;
   font-size: 13px;
-  background: #2C6EED;
-  color: #fff;
+  background: var(--primary);
+  color: var(--white);
   border: none;
   border-radius: 5px;
 }
 
+
 .contact-section {
   max-width: 500px;
   margin: 50px auto;
-  background: #fff;
+  background: var(--white);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
@@ -207,7 +219,6 @@ body {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  outline: none;
 }
 
 .contact-section textarea {
@@ -218,8 +229,8 @@ body {
 .contact-section button {
   margin-top: 10px;
   padding: 10px;
-  background: #2C6EED;
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -227,4 +238,67 @@ body {
 
 .contact-section button:hover {
   background: #1f5bd1;
+}
+
+.footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+
+  
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: var(--white);
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  
+  .search-box {
+    width: 90%;
+  }
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 }
