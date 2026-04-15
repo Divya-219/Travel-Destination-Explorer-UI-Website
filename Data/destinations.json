@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Paris",
+    "category": "city",
+    "description": "City of lights",
+    "image": "images/card1.jpg"
+  },
+  {
+    "name": "Bali",
+    "category": "beach",
+    "description": "Tropical paradise",
+    "image": "images/card2.jpg"
+  },
+  {
+    "name": "New York",
+    "category": "city",
+    "description": "The big city",
+    "image": "images/card3.jpg"
+  },
+  {
+    "name": "Tokyo",
+    "category": "city",
+    "description": "Modern culture",
+    "image": "images/card4.jpg"
+  },
+  {
+    "name": "Dubai",
+    "category": "city",
+    "description": "Luxury city",
+    "image": "images/card5.jpg"
+  },
+  {
+    "name": "Switzerland",
+    "category": "mountain",
+    "description": "Beautiful mountains",
+    "image": "images/card6.jpg"
+  }
+]
