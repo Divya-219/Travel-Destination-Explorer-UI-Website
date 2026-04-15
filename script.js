@@ -6,7 +6,7 @@ const weatherMini = document.getElementById("weatherMini");
 let destinations = [];
 
 
-fetch("data/destinations.json")
+fetch("Data/destinations.json")
   .then(res => res.json())
   .then(data => {
     destinations = data;
