@@ -1,7 +1,10 @@
 const container = document.getElementById("cardContainer");
 const searchInput = document.getElementById("searchInput");
+const weatherMini = document.getElementById("weatherMini");
+
 
 let destinations = [];
+
 
 fetch("data/destinations.json")
   .then(res => res.json())
@@ -15,13 +18,9 @@ fetch("data/destinations.json")
   });
 
 
+
 function renderCards(list) {
   container.innerHTML = "";
-
-  if (list.length === 0) {
-    container.innerHTML = "<p>No destinations found</p>";
-    return;
-  }
 
   list.forEach(place => {
     const card = document.createElement("div");
@@ -32,22 +31,56 @@ function renderCards(list) {
       <div class="card-content">
         <h3>${place.name}</h3>
         <p>${place.description}</p>
-        <button>View</button>
+        <button class="view-btn">View Details</button>
       </div>
     `;
+
+ 
+    card.querySelector(".view-btn").addEventListener("click", (e) => {
+      e.stopPropagation(); // prevents card click conflict
+      alert(`Destination: ${place.name}`);
+    });
 
     container.appendChild(card);
   });
 }
+
 
 searchInput.addEventListener("input", () => {
   const value = searchInput.value.toLowerCase();
 
   const filtered = destinations.filter(place =>
     place.name.toLowerCase().includes(value) ||
-    place.category.toLowerCase().includes(value) ||
-    place.description.toLowerCase().includes(value)
+    place.category.toLowerCase().includes(value)
   );
 
   renderCards(filtered);
+
+  
+  if (filtered.length > 0) {
+    const first = filtered[0];
+    getWeather(first.lat, first.lon, first.name);
+  }
 });
+
+
+function getWeather(lat, lon, name) {
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+    .then(res => res.json())
+    .then(data => {
+      const temp = data.current_weather.temperature;
+
+      weatherMini.innerText = `${name} 🌤 ${temp}°C`;
+    })
+    .catch(() => {
+      weatherMini.innerText = "🌤 N/A";
+    });
+}
+
+
+
+
+window.onload = () => {
+  searchInput.value = "";
+getWeather(43.65, -79.38, "Toronto");
+};
