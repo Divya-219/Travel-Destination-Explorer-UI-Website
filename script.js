@@ -20,6 +20,7 @@ fetch("data/destinations.json")
 
 
 function renderCards(list) {
+    if (!container) return;
   container.innerHTML = "";
 
   list.forEach(place => {
@@ -45,7 +46,7 @@ function renderCards(list) {
   });
 }
 
-
+if (searchInput) {
 searchInput.addEventListener("input", () => {
   const value = searchInput.value.toLowerCase();
 
@@ -62,14 +63,16 @@ searchInput.addEventListener("input", () => {
     getWeather(first.lat, first.lon, first.name);
   }
 });
+}
 
 
 function getWeather(lat, lon, name) {
+  if (!weatherMini) return;
+
   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
     .then(res => res.json())
     .then(data => {
       const temp = data.current_weather.temperature;
-
       weatherMini.innerText = `${name} 🌤 ${temp}°C`;
     })
     .catch(() => {
@@ -79,8 +82,10 @@ function getWeather(lat, lon, name) {
 
 
 
-
 window.onload = () => {
-  searchInput.value = "";
-getWeather(43.65, -79.38, "Toronto");
+  getWeather(43.65, -79.38, "Toronto");
+
+  if (searchInput) {
+    searchInput.value = "";
+  }
 };
