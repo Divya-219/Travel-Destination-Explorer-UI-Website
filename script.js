@@ -6,7 +6,7 @@ const weatherMini = document.getElementById("weatherMini");
 let destinations = [];
 
 
-fetch("https://divya-219.github.io/Travel-Destination-Explorer-Ui-website/Data/destinations.json")
+fetch("https://divya-219.github.io/Travel-Destination-Explorer-UI-Website/Data/destinations.json")
   .then(res => res.json())
   .then(data => {
     destinations = data;
