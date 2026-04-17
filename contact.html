@@ -19,9 +19,8 @@
     </div>
     </div>
   <div class="nav container">
-  <h1 class="logo">🌍 WanderScope</h1>
-
-  <button class="hamburger" id="hamburgerBtn">☰</button>
+    <h1 class="logo">🌍 WanderScope</h1>
+<button class="hamburger" id="hamburgerBtn">☰</button>
 
   <nav>
     <ul class="nav-links" id="navLinks">
@@ -38,31 +37,37 @@
   </div>
 </div>
 </header>
-
+<div class="container">
 <section class="contact-section">
 
   <h2>Contact Us 📩</h2>
 
-  <form>
+  <form id="contactForm">
 
-    <label>Name</label>
-    <input type="text" placeholder="Enter your name" required>
+  <label>Name</label>
+  <input type="text" id="name">
+  <small class="error" id="nameError"></small>
 
-    <label>Email</label>
-    <input type="email" placeholder="Enter your email" required>
+  <label>Email</label>
+  <input type="email" id="email">
+  <small class="error" id="emailError"></small>
 
-    <label>Message</label>
-    <textarea placeholder="Write your message" required></textarea>
+  <label>Message</label>
+  <textarea id="message"></textarea>
+  <small class="error" id="messageError"></small>
 
-    <button type="submit">Send Message</button>
+  <button type="submit">Send Message</button>
 
-  </form>
+</form>
 
 </section>
-<script src="script.js"></script>
-</body>
+</div>
+<script src="contact.js"></script>
+
 <footer class="footer">
   <p>© 2026 WanderScope | Travel Explorer</p>
 </footer>
+</body>
+
 
 </html>

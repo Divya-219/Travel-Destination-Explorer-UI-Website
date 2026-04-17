@@ -22,9 +22,8 @@
     </div>
 
     <div class="nav container">
-  <h1 class="logo">🌍 WanderScope</h1>
-
-  <button class="hamburger" id="hamburgerBtn">☰</button>
+        <h1 class="logo">🌍 WanderScope</h1>
+<button class="hamburger" id="hamburgerBtn">☰</button>
 
   <nav>
     <ul class="nav-links" id="navLinks">
@@ -46,7 +45,7 @@
   <div class="hero-content">
     <h1>Explore the World</h1>
     <p>Discover amazing destinations with ease</p>
-    <a href="#" class="btn">Explore Now</a>
+    <a href="explore.html" class="btn">Explore Now</a>
   </div>
 </section>
 <section class="search">
@@ -56,14 +55,35 @@
   </div>
 </section>
 
+<div class="filters">
+  <button data-type="all" class="active">All</button>
+  <button data-type="city">City</button>
+  <button data-type="beach">Beach</button>
+  <button data-type="mountain">Mountain</button>
+  <button data-type="park">park</button>
+</div>
 
+<section class="featured">
+  <h2>🌟 Featured Destinations</h2>
+  <div class="cards" id="featuredContainer"></div>
+</section>
+<section class="trending">
+  <h2>🔥 Trending Now</h2>
 
-<section class="cards" id="cardContainer">
-  <!-- Cards from JS -->
+  <div class="trending-cards">
+    <div class="trend" onclick="goToExplore('beach')">✈️ Summer in Beach</div>
+    <div class="trend" onclick="goToExplore('city')">🏙 New City Life</div>
+    <div class="trend" onclick="goToExplore('mountain')">🏔 Swiss Mountains</div>
+  </div>
+</section>
+<section class="quote">
+  <p id="quoteText">"Travel is the only thing you buy that makes you richer."</p>
 </section>
 
 
-<script src="script.js"></script>
+
+<script src="home.js"></script>
+
 <footer class="footer">
   <p>© 2026 WanderScope | Travel Explorer</p>
 </footer>
