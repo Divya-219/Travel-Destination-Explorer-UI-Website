@@ -163,7 +163,8 @@ body {
 .card img {
   width: 100%;
   height: 300px;       /* fixed height */
-  object-fit: cover;   /* keeps image proper */
+  object-fit: cover; 
+    filter: brightness(1.05); /* keeps image proper */
 }
 
 /* ✅ FIX HEIGHT */
@@ -183,8 +184,8 @@ body {
 
 /* DESCRIPTION */
 .card p {
-  font-size: 13px;
-  color: #666;
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
   margin: 5px 0;
 }
 
@@ -243,6 +244,17 @@ body {
   color: #444;
 }
 
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+ background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.1)
+  );
+  z-index: 1;
+}
 
 ------Rating-------
 .card-content {
@@ -443,6 +455,36 @@ container {
     text-align: left;
   }
 }
+
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.filters button.active {
+  background: #2C6EED;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
 
 .footer {
   background: #111;
