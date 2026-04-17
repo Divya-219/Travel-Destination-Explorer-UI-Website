@@ -60,8 +60,7 @@ This was solved by splitting the code into reusable functions like renderCards()
 The project is deployed using GitHub Pages and Vercel.
 
 
-Author
-
-Divya Patel
+## Author
+ Divya Patel
 =======
 
